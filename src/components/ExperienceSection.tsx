@@ -7,7 +7,6 @@ const ExperienceSection = () => {
     {
       title: "React Developer",
       company: "Tata Consultancy Services (TCS)",
-      location: "",
       dates: "Dec 2021 – March 2024",
       responsibilities: [
         "Developed scalable and reusable UI components using React, TypeScript, HTML5, and CSS, improving maintainability across enterprise dashboards.",
@@ -55,7 +54,7 @@ const ExperienceSection = () => {
                       </div>
                       <div className="flex items-center space-x-2">
                         <MapPin className="w-4 h-4 text-muted-foreground" />
-                        <span className="text-muted-foreground">{exp.location}</span>
+                        <span className="text-muted-foreground"></span>
                       </div>
                     </div>
                   </div>

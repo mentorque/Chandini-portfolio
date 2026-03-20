@@ -36,7 +36,7 @@ const ContactSection = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Contact
+              Get in touch.
             </h2>
             <div className="w-24 h-1 bg-[hsl(var(--primary))] mx-auto mb-6"></div>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
