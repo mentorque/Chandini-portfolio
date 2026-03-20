@@ -7,7 +7,7 @@ const ExperienceSection = () => {
     {
       title: "React Developer",
       company: "Tata Consultancy Services (TCS)",
-      location: "Dublin, Ireland",
+      location: "",
       dates: "Dec 2021 – March 2024",
       responsibilities: [
         "Developed scalable and reusable UI components using React, TypeScript, HTML5, and CSS, improving maintainability across enterprise dashboards.",
