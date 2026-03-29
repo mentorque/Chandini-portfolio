@@ -4,41 +4,20 @@ import { Badge } from "@/components/ui/badge";
 const SkillsSection = () => {
   const skillCategories = [
     {
-      title: "Front-End Technologies",
-      skills: [
-        "Angular",
-        "React.js",
-        "TypeScript",
-        "JavaScript (ES6+)",
-        "HTML5",
-        "CSS3",
-        "Sass",
-        "Responsive Web Design",
-      ],
+      title: "Frontend",
+      skills: ["React", "TypeScript", "JavaScript", "HTML5", "CSS3", "Redux"],
     },
     {
-      title: "Frameworks & Libraries",
-      skills: ["Redux", "RxJS", "React Router", "Bootstrap", "Tailwind CSS"],
+      title: "Backend",
+      skills: ["Node.js", "Express.js", "REST APIs"],
     },
     {
-      title: "UI / UX Development",
-      skills: ["Reusable UI Components", "Cross-Browser Compatibility", "Accessibility (WCAG)", "Semantic HTML"],
-    },
-    {
-      title: "API Integration",
-      skills: ["REST APIs", "GraphQL", "Axios", "JSON"],
+      title: "Tools",
+      skills: ["Git", "Jira", "Jenkins", "GitHub Actions", "AWS"],
     },
     {
       title: "Testing",
-      skills: ["Jest", "React Testing Library", "Cypress"],
-    },
-    {
-      title: "DevOps & Tools",
-      skills: ["Git", "GitHub", "CircleCI", "CI/CD Pipelines", "Jira", "Confluence", "Visual Studio Code"],
-    },
-    {
-      title: "Cloud Platforms",
-      skills: ["AWS (S3, Lambda)"],
+      skills: ["Jest", "React Testing Library"],
     },
   ];
 
@@ -52,15 +31,15 @@ const SkillsSection = () => {
             </h2>
             <div className="w-16 h-px bg-[hsl(var(--primary))] mx-auto mb-5" />
             <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Front-end development, APIs, testing, delivery tooling, and cloud-connected apps.
+              Frontend, APIs, delivery tooling, and quality.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid sm:grid-cols-2 gap-6">
             {skillCategories.map((category, index) => (
               <Card
                 key={index}
-                className="rounded-lg border border-border/70 bg-[hsl(var(--skill-bg))] shadow-sm hover:shadow-md transition-shadow duration-200"
+                className="rounded-lg border border-border/70 bg-[hsl(var(--skill-bg))] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
               >
                 <CardHeader className="pb-3">
                   <CardTitle className="text-lg font-semibold text-foreground">

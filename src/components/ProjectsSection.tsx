@@ -1,84 +1,53 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import jAndJImg from "@/assets/j&j.png";
-import vodafoneImg from "@/assets/v.png";
 import mentalHealthImg from "@/assets/mh.jpg";
 
 type Project = {
   title: string;
-  description: string;
-  metrics: string[];
+  highlights: string[];
   stack: string[];
   image: string;
-  /** `contain` shows the full image (zoomed out); default is cover */
   imageFit?: "cover" | "contain";
 };
 
 const ProjectsSection = () => {
   const projects: Project[] = [
     {
-      title: "MyConcerta — multilingual site migration",
-      description:
-        "Led front-end delivery for a Johnson & Johnson patient-facing React experience with locale-specific content and role-aware navigation. Shipped a Google Maps–backed “find a treatment centre” flow using device location plus secure REST services. Introduced route- and component-level lazy loading with Jest and React Testing Library so teams could gate releases with automated UI checks.",
-      metrics: [
-        "15+ REST & vendor integrations",
-        "Multi-market, role-based UX",
-        "Lazy-loaded routes & Jest / RTL for core flows",
+      title: "Nutanix Prism DRaaS Dashboard",
+      highlights: [
+        "Built responsive enterprise dashboards for the Nutanix Prism DRaaS platform using React and TypeScript.",
+        "Integrated 8+ REST APIs to display real-time infrastructure and disaster recovery data.",
+        "Improved application performance by 35% through modularized code and optimized rendering.",
       ],
-      stack: [
-        "React",
-        "JavaScript",
-        "Jest",
-        "React Testing Library",
-        "Google Maps API",
-        "REST",
+      stack: ["React", "TypeScript", "Redux", "REST APIs"],
+      image: "/nutanix-tech-partner-logo.png",
+      imageFit: "contain",
+    },
+    {
+      title: "Johnson & Johnson + Vodafone Platform",
+      highlights: [
+        "Developed a multilingual web application for Johnson & Johnson supporting global users with localization features.",
+        "Built enterprise dashboards for Vodafone CSM platform including sales, billing, and payment systems.",
+        "Implemented Redux state management and reduced UI bugs by ~25% through consistent architecture.",
       ],
+      stack: ["React", "TypeScript", "Redux", "i18next", "REST APIs"],
       image: jAndJImg,
       imageFit: "contain",
     },
     {
-      title: "Vodafone — client services platform",
-      description:
-        "Built sales, billing, and payment dashboards in React and TypeScript with Redux for predictable data flow across high-traffic modules. Partnered with backend and QA to harden releases through unit automation and UI consistency on Bootstrap-backed layouts—reducing regressions on payment and subscription workflows.",
-      metrics: [
-        "20+ internal REST integrations",
-        "CSR- and partner-facing workflows at scale",
-        "Up to 35% faster dashboard loads (splitting + lazy loading)",
+      title: "Mental Health Prediction System",
+      highlights: [
+        "Built machine learning models (Logistic Regression, SVM, Random Forest) to predict mental health outcomes.",
+        "Achieved 93% precision and 80% recall using feature engineering and data preprocessing techniques.",
       ],
-      stack: [
-        "React",
-        "TypeScript",
-        "Redux",
-        "Bootstrap",
-        "HTML5",
-        "CSS",
-        "REST",
-      ],
-      image: vodafoneImg,
-    },
-    {
-      title: "Physical activity & mental health — ML study",
-      description:
-        "End-to-end analysis pipeline from cleaning lifestyle signals to training and comparing Logistic Regression, SVM, and Random Forest models. Applied scaling, feature construction, and SMOTE to address imbalance, then interpreted models to highlight sleep, screen time, and work hours as strong predictors of reported distress.",
-      metrics: [
-        "93% precision on hold-out evaluation",
-        "80% recall on the positive class",
-        "3 model families benchmarked + tuned",
-      ],
-      stack: [
-        "Python",
-        "scikit-learn",
-        "pandas",
-        "NumPy",
-        "SMOTE",
-        "Jupyter",
-      ],
+      stack: ["Python", "Machine Learning", "Pandas", "Scikit-learn"],
       image: mentalHealthImg,
     },
   ];
 
   return (
-    <section id="projects" className="py-20 bg-background">
+    <section id="projects" className="py-20 bg-[hsl(var(--section-bg))]">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
@@ -87,7 +56,7 @@ const ProjectsSection = () => {
             </h2>
             <div className="w-16 h-px bg-[hsl(var(--primary))] mx-auto mb-5" />
             <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Selected work across enterprise React, API-heavy UIs, and applied machine learning.
+              Enterprise dashboards, global platforms, and applied ML.
             </p>
           </div>
 
@@ -95,7 +64,7 @@ const ProjectsSection = () => {
             {projects.map((project) => (
               <Card
                 key={project.title}
-                className="rounded-lg border border-border/70 bg-card shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden flex flex-col"
+                className="rounded-lg border border-border/70 bg-card shadow-sm overflow-hidden flex flex-col hover:shadow-lg hover:-translate-y-1 transition-all duration-200"
               >
                 <div className="aspect-video overflow-hidden border-b border-border/50 bg-muted/30">
                   <img
@@ -114,19 +83,16 @@ const ProjectsSection = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="flex flex-col gap-4 flex-1 pt-0">
-                  <ul className="space-y-1.5 text-sm text-muted-foreground">
-                    {project.metrics.map((m) => (
-                      <li key={m} className="flex gap-2">
-                        <span className="text-[hsl(var(--primary))] shrink-0 mt-1.5 w-1 h-1 rounded-full bg-current" />
-                        <span>{m}</span>
+                  <ul className="space-y-2 text-sm text-muted-foreground flex-1">
+                    {project.highlights.map((line) => (
+                      <li key={line} className="flex gap-2.5 leading-relaxed">
+                        <span className="text-[hsl(var(--primary))] shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-current" />
+                        <span>{line}</span>
                       </li>
                     ))}
                   </ul>
-                  <p className="text-sm text-muted-foreground leading-relaxed flex-1">
-                    {project.description}
-                  </p>
                   <div>
-                    <p className="text-xs font-medium uppercase tracking-wide text-foreground/70 mb-2">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-foreground/80 mb-2">
                       Tech stack
                     </p>
                     <div className="flex flex-wrap gap-1.5">

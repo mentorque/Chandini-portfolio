@@ -1,76 +1,63 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Phone, Mail, MapPin, Linkedin } from "lucide-react";
+import { Mail, Linkedin, Github } from "lucide-react";
 
 const ContactSection = () => {
-
-  const contactInfo = [
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "0852797116",
-      href: "tel:0852797116"
-    },
+  const links = [
     {
       icon: Mail,
       label: "Email",
       value: "krishnegowdachandini@gmail.com",
-      href: "mailto:krishnegowdachandini@gmail.com"
-    },
-    {
-      icon: MapPin,
-      label: "Location",
-      value: "Dublin, Ireland",
-      href: ""
+      href: "mailto:krishnegowdachandini@gmail.com",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: "LinkedIn",
-      href: "https://www.linkedin.com/in/chandinikrishna/"
-    }
+      value: "linkedin.com/in/chandinikrishna",
+      href: "https://www.linkedin.com/in/chandinikrishna/",
+    },
+    {
+      icon: Github,
+      label: "GitHub",
+      value: "GitHub profile",
+      href: "https://github.com/chandinikrishna",
+    },
   ];
 
   return (
     <section id="contact" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-3">
-              Get in touch
+              Contact
             </h2>
             <div className="w-16 h-px bg-[hsl(var(--primary))] mx-auto mb-5" />
             <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Open to roles and collaborations in React, TypeScript, and enterprise SaaS delivery.
+              Open to Software Engineer / Frontend roles in Ireland.
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {contactInfo.map((info, index) => (
-                <Card key={index} className="rounded-lg border border-border/70 bg-card shadow-sm hover:shadow-md transition-shadow duration-200">
-                  <CardContent className="p-6 text-center">
-                    <div className="flex flex-col items-center space-y-3">
-                      <div className="flex-shrink-0">
-                        <info.icon className="w-7 h-7 text-[hsl(var(--primary))]" />
-                      </div>
-                      <div>
-                        <h4 className="text-sm font-medium text-foreground mb-1">{info.label}</h4>
-                        {info.href ? (
-                          <a 
-                            href={info.href}
-                            className="text-muted-foreground hover:text-[hsl(var(--primary))] transition-colors duration-200 text-sm break-words"
-                          >
-                            {info.value}
-                          </a>
-                        ) : (
-                          <p className="text-muted-foreground text-sm">{info.value}</p>
-                        )}
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+          <div className="max-w-3xl mx-auto grid sm:grid-cols-3 gap-5">
+            {links.map((item) => (
+              <Card
+                key={item.label}
+                className="rounded-lg border border-border/70 bg-card shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+              >
+                <CardContent className="p-6 text-center flex flex-col items-center gap-3">
+                  <item.icon className="w-8 h-8 text-[hsl(var(--primary))]" />
+                  <h4 className="text-sm font-semibold text-foreground">{item.label}</h4>
+                  <a
+                    href={item.href}
+                    {...(item.href.startsWith("http")
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                    className="text-sm text-muted-foreground hover:text-[hsl(var(--primary))] transition-colors break-all"
+                  >
+                    {item.value}
+                  </a>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </div>

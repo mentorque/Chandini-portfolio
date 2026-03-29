@@ -24,9 +24,9 @@ const ExperienceSection = () => {
             "Developed scalable and reusable UI components using React, TypeScript, HTML5, and CSS, improving maintainability across enterprise dashboards.",
         },
         {
-          impact: "Nutanix Prism DaaS",
+          impact: "Nutanix Prism DRaaS",
           description:
-            "Worked on the Nutanix Prism Desktop as a Service (DaaS) programme—responsive UI, REST API integrations for virtual desktop infrastructure, capacity views, and system monitoring.",
+            "Engineered responsive enterprise UIs for the Nutanix Prism DRaaS platform—REST integrations for infrastructure views, disaster recovery telemetry, and real-time monitoring.",
         },
         {
           impact: "Redux & predictable state",

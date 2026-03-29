@@ -1,9 +1,28 @@
-Reference checklist for portfolio updates (maintain when editing the site):
+Portfolio content & structure (living reference)
 
-- Typography: subtle, professional (no loud display fonts).
-- Background: professional, static (no video loop, no distracting motion).
-- DaaS wording: use “Desktop as a Service (DaaS)” for Nutanix / VDI work; avoid mislabeling it as DRaaS (Disaster Recovery as a Service).
-- Project copy: upgraded descriptions with concrete outcomes.
-- Metrics: include %, scale (users/usage), and API/integration counts where credible.
-- Each project: visible tech stack section.
-- UI: consistent section headers, cards, and badges across About, Skills, Experience, Projects, Education, Contact.
+HERO
+- Name, role line (Software Engineer | React | TypeScript | Frontend Specialist), value prop.
+- CTAs: View Projects (#projects), Download Resume → /resume.pdf (add PDF to /public).
+
+ABOUT
+- Three short paragraphs (enterprise React/TS, Nutanix DRaaS + J&J, craft & UX).
+- Contact strip: email, location, LinkedIn.
+
+SKILLS
+- Frontend / Backend / Tools / Testing groupings as implemented.
+
+EXPERIENCE
+- TCS narrative; Nutanix Prism DRaaS wording aligned with projects.
+
+KEY ACHIEVEMENTS (#achievements)
+- 35% performance, 25% UI bugs, 20+ components, 8+ APIs.
+
+PROJECTS
+- Nutanix Prism DRaaS Dashboard, J&J + Vodafone, Mental Health ML — metrics + tech stack each.
+
+CONTACT
+- Email, LinkedIn, GitHub + “Open to Software Engineer / Frontend roles in Ireland.”
+- Set real GitHub URL in ContactSection if different from placeholder.
+
+UI
+- Primary purple + neutrals; cards with hover lift/shadow; consistent section headers.
