@@ -4,74 +4,143 @@ import jAndJImg from "@/assets/j&j.png";
 import vodafoneImg from "@/assets/v.png";
 import mentalHealthImg from "@/assets/mh.jpg";
 
+type Project = {
+  title: string;
+  description: string;
+  metrics: string[];
+  stack: string[];
+  image: string;
+  /** `contain` shows the full image (zoomed out); default is cover */
+  imageFit?: "cover" | "contain";
+};
+
 const ProjectsSection = () => {
-  const projects = [
+  const projects: Project[] = [
     {
-      title: "MyConcerta - Multilingual Website Migration",
-      description: "Developed a multilingual React web application for Johnson & Johnson supporting role-based navigation and responsive UI. Integrated Google Maps API and REST APIs to build a \"Find Treatment Centre\" feature using user GPS location. Implemented lazy loading and unit testing with Jest and React Testing Library, improving performance and reliability.",
+      title: "MyConcerta — multilingual site migration",
+      description:
+        "Led front-end delivery for a Johnson & Johnson patient-facing React experience with locale-specific content and role-aware navigation. Shipped a Google Maps–backed “find a treatment centre” flow using device location plus secure REST services. Introduced route- and component-level lazy loading with Jest and React Testing Library so teams could gate releases with automated UI checks.",
+      metrics: [
+        "15+ REST & vendor integrations",
+        "Multi-market, role-based UX",
+        "Lazy-loaded routes & Jest / RTL for core flows",
+      ],
+      stack: [
+        "React",
+        "JavaScript",
+        "Jest",
+        "React Testing Library",
+        "Google Maps API",
+        "REST",
+      ],
       image: jAndJImg,
-      technologies: ["React", "JavaScript", "Jest", "React Testing Library", "Google Maps API", "REST APIs"]
+      imageFit: "contain",
     },
     {
-      title: "Vodafone Client Services Platform",
-      description: "Built responsive sales, billing, and payment dashboards using React, TypeScript, Redux, HTML5, and Bootstrap. Implemented state management and automated unit testing, reducing production defects and improving release quality. Collaborated with backend and QA teams to deliver high-performance enterprise web applications.",
+      title: "Vodafone — client services platform",
+      description:
+        "Built sales, billing, and payment dashboards in React and TypeScript with Redux for predictable data flow across high-traffic modules. Partnered with backend and QA to harden releases through unit automation and UI consistency on Bootstrap-backed layouts—reducing regressions on payment and subscription workflows.",
+      metrics: [
+        "20+ internal REST integrations",
+        "CSR- and partner-facing workflows at scale",
+        "Up to 35% faster dashboard loads (splitting + lazy loading)",
+      ],
+      stack: [
+        "React",
+        "TypeScript",
+        "Redux",
+        "Bootstrap",
+        "HTML5",
+        "CSS",
+        "REST",
+      ],
       image: vodafoneImg,
-      technologies: ["React", "TypeScript", "Redux", "HTML5", "Bootstrap", "Unit Testing", "REST APIs"]
     },
     {
-      title: "Analyzing the Impact of Physical Activity on Mental Health",
-      description: "Developed machine learning models including Logistic Regression, SVM, and Random Forest to predict mental health outcomes using lifestyle and activity data. Performed data preprocessing, feature engineering, normalization, and SMOTE to handle class imbalance, achieving 93% precision and 80% recall. Identified key behavioral factors such as sleep duration, screen time, and work hours affecting mental well-being.",
+      title: "Physical activity & mental health — ML study",
+      description:
+        "End-to-end analysis pipeline from cleaning lifestyle signals to training and comparing Logistic Regression, SVM, and Random Forest models. Applied scaling, feature construction, and SMOTE to address imbalance, then interpreted models to highlight sleep, screen time, and work hours as strong predictors of reported distress.",
+      metrics: [
+        "93% precision on hold-out evaluation",
+        "80% recall on the positive class",
+        "3 model families benchmarked + tuned",
+      ],
+      stack: [
+        "Python",
+        "scikit-learn",
+        "pandas",
+        "NumPy",
+        "SMOTE",
+        "Jupyter",
+      ],
       image: mentalHealthImg,
-      technologies: ["Machine Learning", "Logistic Regression", "SVM", "Random Forest", "SMOTE", "Data Preprocessing", "Feature Engineering"]
     },
   ];
 
   return (
-    <section id="projects" className="py-20 bg-white">
+    <section id="projects" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-3">
               Projects
             </h2>
-            <div className="w-24 h-1 bg-[hsl(var(--primary))] mx-auto mb-6"></div>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Projects demonstrating React development, REST API integration, and machine learning
+            <div className="w-16 h-px bg-[hsl(var(--primary))] mx-auto mb-5" />
+            <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Selected work across enterprise React, API-heavy UIs, and applied machine learning.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
-              <Card key={index} className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
-                <div className="aspect-video overflow-hidden">
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+            {projects.map((project) => (
+              <Card
+                key={project.title}
+                className="rounded-lg border border-border/70 bg-card shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden flex flex-col"
+              >
+                <div className="aspect-video overflow-hidden border-b border-border/50 bg-muted/30">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className={
+                      project.imageFit === "contain"
+                        ? "w-full h-full object-contain object-center p-3 sm:p-4"
+                        : "w-full h-full object-cover"
+                    }
                   />
                 </div>
-                <CardHeader className="pb-4">
-                  <CardTitle className="text-xl font-bold text-foreground group-hover:text-[hsl(var(--primary))] transition-colors duration-200">
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-lg font-semibold text-foreground leading-snug">
                     {project.title}
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground leading-relaxed mb-6">
+                <CardContent className="flex flex-col gap-4 flex-1 pt-0">
+                  <ul className="space-y-1.5 text-sm text-muted-foreground">
+                    {project.metrics.map((m) => (
+                      <li key={m} className="flex gap-2">
+                        <span className="text-[hsl(var(--primary))] shrink-0 mt-1.5 w-1 h-1 rounded-full bg-current" />
+                        <span>{m}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-sm text-muted-foreground leading-relaxed flex-1">
                     {project.description}
                   </p>
-                  
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, techIndex) => (
-                      <Badge 
-                        key={techIndex}
-                        variant="secondary"
-                        className="bg-[hsl(var(--skill-bg))] text-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))] hover:text-white transition-colors duration-200"
-                      >
-                        {tech}
-                      </Badge>
-                    ))}
+                  <div>
+                    <p className="text-xs font-medium uppercase tracking-wide text-foreground/70 mb-2">
+                      Tech stack
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.stack.map((tech) => (
+                        <Badge
+                          key={tech}
+                          variant="secondary"
+                          className="font-normal text-xs rounded-md bg-[hsl(var(--skill-bg))] text-foreground border border-border/60"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
                   </div>
-
                 </CardContent>
               </Card>
             ))}

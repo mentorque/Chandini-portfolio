@@ -27,7 +27,7 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 bg-[hsl(var(--nav-bg))] backdrop-blur-sm z-50 border-b border-border/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="font-bold text-xl text-white">
+          <div className="font-semibold text-lg text-white tracking-tight">
             Chandini Krishnegowda
           </div>
 
@@ -37,7 +37,7 @@ const Navigation = () => {
               <button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
-                className="text-white hover:text-[hsl(var(--hero-accent))] transition-colors duration-200 font-medium"
+                className="text-white/90 hover:text-white transition-colors duration-200 text-sm font-normal"
               >
                 {item.label}
               </button>
@@ -50,7 +50,7 @@ const Navigation = () => {
               variant="ghost"
               size="sm"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-white hover:text-[hsl(var(--hero-accent))] hover:bg-white/10"
+              className="text-white hover:bg-white/10"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </Button>
@@ -65,7 +65,7 @@ const Navigation = () => {
                 <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className="block px-3 py-2 text-white hover:text-[hsl(var(--hero-accent))] hover:bg-white/10 rounded-md text-base font-medium w-full text-left transition-colors duration-200"
+                  className="block px-3 py-2 text-white/90 hover:text-white hover:bg-white/10 rounded-md text-sm font-normal w-full text-left transition-colors duration-200"
                 >
                   {item.label}
                 </button>

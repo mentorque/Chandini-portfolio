@@ -19,86 +19,64 @@ const HeroSection = () => {
   };
 
   return (
-    <section 
-      id="home" 
+    <section
+      id="home"
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
       style={{
-        backgroundImage: `linear-gradient(135deg, rgba(220, 25, 6, 0.9), rgba(250, 84, 20, 0.8)), url(${heroBackground})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed'
+        backgroundImage: `linear-gradient(180deg, hsl(220 28% 12% / 0.92) 0%, hsl(220 25% 8% / 0.94) 100%), url(${heroBackground})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
-      {/* Background video */}
-<div className="absolute inset-0">
-  <video
-    autoPlay
-    loop
-    muted
-    playsInline
-    poster={heroBackground}     // fallback image while video loads
-    className="w-full h-full object-cover"
-  >
-    <source
-      src="https://videos.pexels.com/video-files/1722882/1722882-uhd_2560_1440_25fps.mp4"
-      type="video/mp4"
-    />
-  </video>
-  {/* Optional dark overlay for readability */}
-  <div className="absolute inset-0 bg-black/50" />
-</div>
-
-      {/* Animated particles overlay */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full animate-float"></div>
-        <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-accent rounded-full animate-float" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/2 left-3/4 w-1.5 h-1.5 bg-primary rounded-full animate-float" style={{animationDelay: '4s'}}></div>
-        <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-white rounded-full animate-float" style={{animationDelay: '1s'}}></div>
-      </div>
-      
       <div className="container mx-auto px-4 text-center relative z-10">
-        <div className="mb-8 animate-scale-in flex justify-center">
+        <div className="mb-8 flex justify-center animate-fade-in">
           <img
             src={profileImage}
             alt="Chandini Krishnegowda"
-            className="w-56 h-56 rounded-full border-4 border-white shadow-glow object-cover object-center animate-float"
+            className="w-52 h-52 md:w-56 md:h-56 rounded-full border-2 border-white/40 shadow-lg object-cover object-center"
           />
         </div>
-        
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight animate-fade-in">
+
+        <h1 className="text-4xl md:text-6xl font-semibold text-white mb-4 tracking-tight animate-fade-in">
           Chandini Krishnegowda
         </h1>
-        
-        <p className="text-xl md:text-2xl text-white/90 mb-4 max-w-3xl mx-auto leading-relaxed animate-slide-up">
+
+        <p className="text-lg md:text-xl text-white/85 mb-4 max-w-2xl mx-auto leading-relaxed animate-slide-up font-normal">
           Software Developer with 2+ years of experience building scalable SaaS applications and enterprise dashboards using React, TypeScript, and JavaScript.
         </p>
-        
-        <div className="flex items-center justify-center space-x-2 text-white/80 mb-12 animate-slide-up" style={{animationDelay: '0.2s'}}>
-          <MapPin className="w-5 h-5 text-accent animate-glow" />
-          <span className="text-lg">Dublin, Ireland</span>
+
+        <div
+          className="flex items-center justify-center gap-2 text-white/75 mb-10 animate-slide-up"
+          style={{ animationDelay: "0.15s" }}
+        >
+          <MapPin className="w-4 h-4 shrink-0 opacity-90" />
+          <span className="text-base font-normal">Dublin, Ireland</span>
         </div>
-        
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-slide-up" style={{animationDelay: '0.4s'}}>
-          <Button 
+
+        <div
+          className="flex flex-col sm:flex-row gap-3 justify-center mb-12 animate-slide-up"
+          style={{ animationDelay: "0.25s" }}
+        >
+          <Button
             onClick={scrollToContact}
             size="lg"
-            className="bg-gradient-primary hover:shadow-glow text-white font-semibold px-8 py-4 text-lg rounded-xl shadow-elegant hover:scale-105 transition-all duration-300"
+            className="bg-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))]/90 text-primary-foreground font-medium px-8 py-6 text-base rounded-lg shadow-md transition-colors duration-200"
           >
-            Get In Touch
+            Get in touch
           </Button>
-          <Button 
+          <Button
             onClick={scrollToAbout}
             variant="outline"
             size="lg"
-            className="border-2 border-white bg-white/10 backdrop-blur text-white hover:bg-white hover:text-[hsl(var(--hero-bg))] font-semibold px-8 py-4 text-lg rounded-xl transition-all duration-300 hover:scale-105"
+            className="border border-white/50 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 font-medium px-8 py-6 text-base rounded-lg transition-colors duration-200"
           >
-            Learn More
+            Learn more
           </Button>
         </div>
       </div>
-      
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ChevronDown className="w-8 h-8 text-white animate-glow" />
+
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50">
+        <ChevronDown className="w-7 h-7" aria-hidden />
       </div>
     </section>
   );

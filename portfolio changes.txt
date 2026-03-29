@@ -1,0 +1,9 @@
+Reference checklist for portfolio updates (maintain when editing the site):
+
+- Typography: subtle, professional (no loud display fonts).
+- Background: professional, static (no video loop, no distracting motion).
+- DaaS wording: use “Desktop as a Service (DaaS)” for Nutanix / VDI work; avoid mislabeling it as DRaaS (Disaster Recovery as a Service).
+- Project copy: upgraded descriptions with concrete outcomes.
+- Metrics: include %, scale (users/usage), and API/integration counts where credible.
+- Each project: visible tech stack section.
+- UI: consistent section headers, cards, and badges across About, Skills, Experience, Projects, Education, Contact.

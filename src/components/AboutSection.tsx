@@ -21,21 +21,21 @@ const AboutSection = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Professional Summary
+            <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-3">
+              Professional summary
             </h2>
-            <div className="w-24 h-1 bg-[hsl(var(--primary))] mx-auto"></div>
+            <div className="w-16 h-px bg-[hsl(var(--primary))] mx-auto mb-5" />
           </div>
 
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Main Content - Takes 2/3 of the space */}
             <div className="lg:col-span-2">
-              <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
-                Professional Summary
+              <h3 className="text-xl font-semibold text-foreground mb-5">
+                Overview
               </h3>
               
-              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                Software Developer with 2+ years of experience building scalable SaaS applications and enterprise dashboards using React, TypeScript, and JavaScript. Experienced in developing high-performance UI components, REST API integrations, and cloud-enabled web applications. Worked on the Nutanix Prism DaaS platform, delivering performance-optimised solutions in Agile environments.
+              <p className="text-base text-muted-foreground leading-relaxed mb-8">
+                Software Developer with 2+ years of experience building scalable SaaS applications and enterprise dashboards using React, TypeScript, and JavaScript. Experienced in high-performance UI components, REST API integrations, and cloud-connected web apps—including the Nutanix Prism Desktop as a Service (DaaS) surface—shipping performance-focused work in Agile teams.
               </p>
 
               {/* Contact Information Grid */}
@@ -57,9 +57,9 @@ const AboutSection = () => {
 
             {/* Quick Facts Sidebar - Takes 1/3 of the space */}
             <div className="lg:col-span-1">
-              <Card className="bg-white shadow-lg border-0">
+              <Card className="rounded-lg border border-border/70 bg-card shadow-sm">
                 <CardContent className="p-6">
-                  <h4 className="text-xl font-bold text-foreground mb-6 flex items-center">
+                  <h4 className="text-lg font-semibold text-foreground mb-6 flex items-center">
                     <Award className="w-5 h-5 mr-2 text-[hsl(var(--primary))]" />
                     Quick Facts
                   </h4>

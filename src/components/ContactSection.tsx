@@ -34,27 +34,27 @@ const ContactSection = () => {
     <section id="contact" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Get in touch.
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-3">
+              Get in touch
             </h2>
-            <div className="w-24 h-1 bg-[hsl(var(--primary))] mx-auto mb-6"></div>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Ready to connect for software development, React/TypeScript projects, and scalable SaaS applications
+            <div className="w-16 h-px bg-[hsl(var(--primary))] mx-auto mb-5" />
+            <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Open to roles and collaborations in React, TypeScript, and enterprise SaaS delivery.
             </p>
           </div>
 
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {contactInfo.map((info, index) => (
-                <Card key={index} className="bg-[hsl(var(--skill-bg))] border-none shadow-md hover:shadow-lg transition-shadow duration-300">
+                <Card key={index} className="rounded-lg border border-border/70 bg-card shadow-sm hover:shadow-md transition-shadow duration-200">
                   <CardContent className="p-6 text-center">
-                    <div className="flex flex-col items-center space-y-4">
+                    <div className="flex flex-col items-center space-y-3">
                       <div className="flex-shrink-0">
-                        <info.icon className="w-8 h-8 text-[hsl(var(--primary))]" />
+                        <info.icon className="w-7 h-7 text-[hsl(var(--primary))]" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-foreground mb-2">{info.label}</h4>
+                        <h4 className="text-sm font-medium text-foreground mb-1">{info.label}</h4>
                         {info.href ? (
                           <a 
                             href={info.href}

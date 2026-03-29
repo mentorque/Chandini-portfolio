@@ -46,31 +46,34 @@ const SkillsSection = () => {
     <section id="skills" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Technical Skills
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-3">
+              Technical skills
             </h2>
-            <div className="w-24 h-1 bg-[hsl(var(--primary))] mx-auto mb-6"></div>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Front-end development, REST API integration, testing, DevOps, and cloud-enabled web applications
+            <div className="w-16 h-px bg-[hsl(var(--primary))] mx-auto mb-5" />
+            <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Front-end development, APIs, testing, delivery tooling, and cloud-connected apps.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6">
             {skillCategories.map((category, index) => (
-              <Card key={index} className="bg-[hsl(var(--skill-bg))] border-none shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <CardHeader className="pb-4">
-                  <CardTitle className="text-xl font-bold text-foreground">
+              <Card
+                key={index}
+                className="rounded-lg border border-border/70 bg-[hsl(var(--skill-bg))] shadow-sm hover:shadow-md transition-shadow duration-200"
+              >
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg font-semibold text-foreground">
                     {category.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2.5">
                     {category.skills.map((skill, skillIndex) => (
-                      <Badge 
+                      <Badge
                         key={skillIndex}
                         variant="secondary"
-                        className="bg-[hsl(var(--primary))] text-white hover:bg-[hsl(var(--primary))]/90 px-3 py-1 text-sm font-medium"
+                        className="rounded-lg border-0 bg-[hsl(var(--primary))] px-3.5 py-2 text-sm font-medium text-primary-foreground shadow-sm hover:bg-[hsl(var(--primary))]/90"
                       >
                         {skill}
                       </Badge>
