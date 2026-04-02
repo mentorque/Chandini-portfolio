@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronDown, Download } from "lucide-react";
 import profileImage from "@/assets/chandiniprofile.jpg";
 import heroBackground from "@/assets/hero-background-modern.jpg";
+import { RESUME_PATH } from "@/config/site";
 
 const HeroSection = () => {
   const scrollToProjects = () => {
@@ -47,7 +48,7 @@ const HeroSection = () => {
             type="button"
             onClick={scrollToProjects}
             size="lg"
-            className="bg-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))]/90 text-primary-foreground font-medium px-8 py-6 text-base rounded-lg shadow-md transition-all duration-200 hover:scale-[1.02]"
+            className="bg-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))]/90 text-primary-foreground font-medium px-8 py-6 text-base rounded-lg shadow-md transition-all duration-200 hover:scale-[1.02] border-0"
           >
             View Projects
           </Button>
@@ -58,7 +59,7 @@ const HeroSection = () => {
             className="border border-white/50 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 font-medium px-8 py-6 text-base rounded-lg transition-all duration-200 hover:scale-[1.02] gap-2"
             asChild
           >
-            <a href="/resume.pdf" download>
+            <a href={RESUME_PATH} download>
               <Download className="w-4 h-4" />
               Download Resume
             </a>

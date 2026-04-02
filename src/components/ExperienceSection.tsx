@@ -16,7 +16,8 @@ const ExperienceSection = () => {
       position: "React Developer",
       location: "India",
       duration: "Dec 2021 – March 2024",
-      logo: "TCS",
+      logoSrc: "/Tata_Consultancy_Services_old_logo.svg.png",
+      logoAlt: "Tata Consultancy Services",
       achievements: [
         {
           impact: "Scalable UI components",
@@ -63,7 +64,7 @@ const ExperienceSection = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-foreground font-space-grotesk">
             Work{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[hsl(202_100%_42%)] to-[hsl(202_85%_28%)] bg-clip-text text-transparent">
               Experience
             </span>
           </h2>
@@ -82,8 +83,12 @@ const ExperienceSection = () => {
               <CardHeader className="pb-4">
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                   <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 shrink-0 bg-gradient-to-br from-[hsl(var(--primary))] to-[hsl(var(--accent))] rounded-xl flex items-center justify-center text-lg font-bold text-white shadow-lg">
-                      {exp.logo}
+                    <div className="h-20 w-[9.5rem] sm:w-[10.5rem] shrink-0 rounded-xl bg-white border border-border px-2.5 py-2 shadow-sm flex items-center justify-start">
+                      <img
+                        src={exp.logoSrc}
+                        alt={exp.logoAlt}
+                        className="h-14 sm:h-16 w-auto max-w-none object-contain object-left"
+                      />
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold text-foreground font-space-grotesk">

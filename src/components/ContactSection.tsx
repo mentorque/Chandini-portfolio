@@ -1,13 +1,14 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Linkedin, Github } from "lucide-react";
+import { CONTACT_EMAIL } from "@/config/site";
 
 const ContactSection = () => {
   const links = [
     {
       icon: Mail,
       label: "Email",
-      value: "krishnegowdachandini@gmail.com",
-      href: "mailto:krishnegowdachandini@gmail.com",
+      value: CONTACT_EMAIL,
+      href: `mailto:${CONTACT_EMAIL}`,
     },
     {
       icon: Linkedin,

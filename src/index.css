@@ -17,7 +17,8 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 220 13% 13%;
 
-    --primary: 250 84% 54%;
+    /* TCS / SDE blue — review & tweak if needed */
+    --primary: 202 100% 37%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 220 13% 18%;
@@ -26,15 +27,15 @@ All colors MUST be HSL.
     --muted: 220 13% 95%;
     --muted-foreground: 220 9% 46%;
 
-    --accent: 142 84% 44%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 202 55% 92%;
+    --accent-foreground: 202 100% 22%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 220 13% 98%;
 
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 250 84% 54%;
+    --ring: 202 100% 37%;
 
     --radius: 0.75rem;
 
@@ -43,11 +44,11 @@ All colors MUST be HSL.
     --hero-accent: 142 84% 44%;
     --nav-bg: 220 25% 8%;
     --section-bg: 220 13% 98%;
-    --skill-bg: 250 84% 97%;
+    --skill-bg: 202 45% 96%;
     
     /* Enhanced gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(250 84% 54%), hsl(142 84% 44%));
-    --gradient-hero: linear-gradient(135deg, hsl(220 25% 6%), hsl(250 84% 20%));
+    --gradient-primary: linear-gradient(135deg, hsl(202 100% 37%), hsl(202 90% 30%));
+    --gradient-hero: linear-gradient(135deg, hsl(220 28% 8%), hsl(202 45% 18%));
     --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(220 13% 98%));
     --gradient-accent: linear-gradient(120deg, hsl(142 84% 44%), hsl(180 84% 44%));
     
@@ -56,7 +57,7 @@ All colors MUST be HSL.
     --shadow-md: 0 4px 6px -1px hsl(220 13% 69% / 0.1), 0 2px 4px -1px hsl(220 13% 69% / 0.06);
     --shadow-lg: 0 10px 15px -3px hsl(220 13% 69% / 0.1), 0 4px 6px -2px hsl(220 13% 69% / 0.05);
     --shadow-xl: 0 20px 25px -5px hsl(220 13% 69% / 0.1), 0 10px 10px -5px hsl(220 13% 69% / 0.04);
-    --shadow-glow: 0 0 40px hsl(250 84% 54% / 0.15);
+    --shadow-glow: 0 0 40px hsl(202 100% 37% / 0.18);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -78,7 +79,7 @@ All colors MUST be HSL.
     --popover: 220 25% 8%;
     --popover-foreground: 220 13% 98%;
 
-    --primary: 250 84% 64%;
+    --primary: 202 100% 50%;
     --primary-foreground: 220 25% 6%;
 
     --secondary: 220 13% 15%;
@@ -95,7 +96,7 @@ All colors MUST be HSL.
 
     --border: 220 13% 15%;
     --input: 220 13% 15%;
-    --ring: 250 84% 64%;
+    --ring: 202 100% 50%;
 
     /* Dark mode portfolio colors */
     --hero-bg: 220 25% 6%;

@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Mail, Linkedin, GraduationCap, Calendar, Globe, Award } from "lucide-react";
+import { CONTACT_EMAIL } from "@/config/site";
 
 const AboutSection = () => {
   const quickFacts = [
@@ -10,7 +11,7 @@ const AboutSection = () => {
   ];
 
   const contactInfo = [
-    { icon: Mail, value: "krishnegowdachandini@gmail.com", href: "mailto:krishnegowdachandini@gmail.com" },
+    { icon: Mail, value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
     { icon: MapPin, value: "Dublin, Ireland", href: "" },
     { icon: Linkedin, value: "LinkedIn", href: "https://www.linkedin.com/in/chandinikrishna/" },
   ];

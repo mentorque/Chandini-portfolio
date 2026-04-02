@@ -5,6 +5,7 @@ import mentalHealthImg from "@/assets/mh.jpg";
 
 type Project = {
   title: string;
+  subtitle?: string;
   highlights: string[];
   stack: string[];
   image: string;
@@ -44,6 +45,27 @@ const ProjectsSection = () => {
       stack: ["Python", "Machine Learning", "Pandas", "Scikit-learn"],
       image: mentalHealthImg,
     },
+    {
+      title: "Smart Eye for Visually Impaired",
+      subtitle: "AI-Based Guidance System · August 2021",
+      highlights: [
+        "Designed and developed an AI-based portable assistance system to support visually impaired individuals in navigating indoor environments safely. Analyzed real-world user challenges and translated them into functional system requirements for practical usability.",
+        "Implemented real-time object detection and image processing for obstacle identification and spatial awareness. Integrated sensors and camera modules to detect object position and environmental changes.",
+        "Developed voice-based audio guidance to notify users about obstacles and directional movement. Collaborated on system design, hardware integration, testing, documentation, and final project presentation.",
+      ],
+      stack: [
+        "Python",
+        "OpenCV",
+        "YOLO",
+        "Raspberry Pi",
+        "IR Sensors",
+        "Ultrasonic Sensors",
+        "Pi Camera",
+        "Text-to-Speech",
+      ],
+      image: "/photo-1542647879-d84f68115c67.avif",
+      imageFit: "cover",
+    },
   ];
 
   return (
@@ -56,17 +78,17 @@ const ProjectsSection = () => {
             </h2>
             <div className="w-16 h-px bg-[hsl(var(--primary))] mx-auto mb-5" />
             <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Enterprise dashboards, global platforms, and applied ML.
+              Enterprise UIs, global platforms, ML, and embedded AI systems.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 xl:grid-cols-2 gap-6">
             {projects.map((project) => (
               <Card
                 key={project.title}
                 className="rounded-lg border border-border/70 bg-card shadow-sm overflow-hidden flex flex-col hover:shadow-lg hover:-translate-y-1 transition-all duration-200"
               >
-                <div className="aspect-video overflow-hidden border-b border-border/50 bg-muted/30">
+                <div className="aspect-video overflow-hidden border-b border-border/50 bg-white">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -81,11 +103,16 @@ const ProjectsSection = () => {
                   <CardTitle className="text-lg font-semibold text-foreground leading-snug">
                     {project.title}
                   </CardTitle>
+                  {project.subtitle ? (
+                    <p className="text-sm font-medium text-[hsl(var(--primary))] mt-1">
+                      {project.subtitle}
+                    </p>
+                  ) : null}
                 </CardHeader>
                 <CardContent className="flex flex-col gap-4 flex-1 pt-0">
                   <ul className="space-y-2 text-sm text-muted-foreground flex-1">
                     {project.highlights.map((line) => (
-                      <li key={line} className="flex gap-2.5 leading-relaxed">
+                      <li key={line.slice(0, 48)} className="flex gap-2.5 leading-relaxed">
                         <span className="text-[hsl(var(--primary))] shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-current" />
                         <span>{line}</span>
                       </li>
