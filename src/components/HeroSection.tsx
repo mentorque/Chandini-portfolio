@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Download } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import profileImage from "@/assets/chandiniprofile.jpg";
 import heroBackground from "@/assets/hero-background-modern.jpg";
 import { RESUME_PATH } from "@/config/site";
@@ -12,13 +12,35 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
-      style={{
-        backgroundImage: `linear-gradient(180deg, hsl(220 28% 12% / 0.92) 0%, hsl(220 25% 8% / 0.94) 100%), url(${heroBackground})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
+      {/* Base photo */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-[1.02]"
+        style={{ backgroundImage: `url(${heroBackground})` }}
+        aria-hidden
+      />
+      {/* Soft depth: top lighter, bottom richer */}
+      <div
+        className="absolute inset-0 bg-gradient-to-b from-slate-950/55 via-slate-950/40 to-slate-950/82 pointer-events-none"
+        aria-hidden
+      />
+      {/* Subtle brand wash (matches primary blue) */}
+      <div
+        className="absolute inset-0 bg-gradient-to-br from-[hsl(202_85%_38%_/_0.14)] via-transparent to-[hsl(220_45%_12%_/_0.35)] pointer-events-none"
+        aria-hidden
+      />
+      {/* Vignette: keep focus on center content */}
+      <div
+        className="absolute inset-0 bg-[radial-gradient(ellipse_85%_65%_at_50%_38%,hsl(220_25%_8%_/_0.08)_0%,hsl(220_28%_6%_/_0.58)_100%)] pointer-events-none"
+        aria-hidden
+      />
+      {/* Gentle bottom fade */}
+      <div
+        className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-950/65 to-transparent pointer-events-none"
+        aria-hidden
+      />
+
       <div className="container mx-auto px-4 text-center relative z-10 pt-20 pb-16">
         <div className="mb-8 flex justify-center animate-fade-in">
           <img
@@ -56,12 +78,11 @@ const HeroSection = () => {
             type="button"
             size="lg"
             variant="outline"
-            className="border border-white/50 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 font-medium px-8 py-6 text-base rounded-lg transition-all duration-200 hover:scale-[1.02] gap-2"
+            className="border border-white/50 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 font-medium px-8 py-6 text-base rounded-lg transition-all duration-200 hover:scale-[1.02]"
             asChild
           >
-            <a href={RESUME_PATH} download>
-              <Download className="w-4 h-4" />
-              Download Resume
+            <a href={RESUME_PATH} download="Chandini_Krishnegowda_Resume.pdf">
+              Resume
             </a>
           </Button>
         </div>
