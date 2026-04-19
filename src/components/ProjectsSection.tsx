@@ -10,10 +10,25 @@ type Project = {
   stack: string[];
   image: string;
   imageFit?: "cover" | "contain";
+  links?: { label: string; href: string }[];
 };
 
 const ProjectsSection = () => {
   const projects: Project[] = [
+    {
+      title: "AI Interview Prep & Resume Analyzer",
+      highlights: [
+        "Built a full-stack app with React and Node.js: JWT auth, PDF resume upload and parsing, and Groq LLaMA–powered analysis.",
+        "Surfaces match, ATS, and resume scores; generates technical and behavioral (STAR) questions, skill gaps, missing keywords, a 7-day prep roadmap, and recent report history with download.",
+        "Deployed the frontend on Vercel and the API on Render (free tier may cold-start on first load).",
+      ],
+      stack: ["React", "Node.js", "Groq", "JWT", "PDF", "Vercel", "Render"],
+      image: "/ai-interview-prep-login.png",
+      links: [
+        { label: "Live app", href: "https://ai-interview-frontend-puce.vercel.app" },
+        { label: "GitHub", href: "https://github.com/krishnegowdachandini-tech/interview-ai-yt" },
+      ],
+    },
     {
       title: "Nutanix Prism DRaaS Dashboard",
       highlights: [
@@ -134,6 +149,21 @@ const ProjectsSection = () => {
                       ))}
                     </div>
                   </div>
+                  {project.links?.length ? (
+                    <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
+                      {project.links.map((link) => (
+                        <a
+                          key={link.href}
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[hsl(var(--primary))] font-medium hover:underline underline-offset-2"
+                        >
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  ) : null}
                 </CardContent>
               </Card>
             ))}
