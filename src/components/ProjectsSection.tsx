@@ -22,7 +22,7 @@ const ProjectsSection = () => {
         "Surfaces match, ATS, and resume scores; generates technical and behavioral (STAR) questions, skill gaps, missing keywords, a 7-day prep roadmap, and recent report history with download.",
         "Deployed the frontend on Vercel and the API on Render (free tier may cold-start on first load).",
       ],
-      stack: ["React", "Node.js", "Groq", "JWT", "PDF", "Vercel", "Render"],
+      stack: ["JavaScript" ,"React", "Node.js","Groq", "JWT", "PDF", "Vercel", "Render"],
       image: "/ai-interview-prep-login.png",
       links: [
         { label: "Live app", href: "https://ai-interview-frontend-puce.vercel.app" },
