@@ -2,6 +2,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import jAndJImg from "@/assets/j&j.png";
 import mentalHealthImg from "@/assets/mh.jpg";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
 
 type Project = {
   title: string;
@@ -9,8 +11,86 @@ type Project = {
   highlights: string[];
   stack: string[];
   image: string;
+  images?: string[];
   imageFit?: "cover" | "contain";
   links?: { label: string; href: string }[];
+};
+
+const ProjectImageCarousel = ({ project }: { project: Project }) => {
+  const imageList = project.images?.length ? project.images : [project.image];
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+
+  const showPrev = () => {
+    setActiveIndex((prev) => (prev === 0 ? imageList.length - 1 : prev - 1));
+  };
+
+  const showNext = () => {
+    setActiveIndex((prev) => (prev === imageList.length - 1 ? 0 : prev + 1));
+  };
+
+  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+    setTouchStartX(event.changedTouches[0]?.clientX ?? null);
+  };
+
+  const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
+    if (touchStartX === null) {
+      return;
+    }
+
+    const touchEndX = event.changedTouches[0]?.clientX ?? touchStartX;
+    const swipeDistance = touchStartX - touchEndX;
+    const threshold = 40;
+
+    if (swipeDistance > threshold) {
+      showNext();
+    } else if (swipeDistance < -threshold) {
+      showPrev();
+    }
+
+    setTouchStartX(null);
+  };
+
+  const currentImage = imageList[activeIndex] ?? project.image;
+
+  return (
+    <div
+      className="relative aspect-video overflow-hidden border-b border-border/50 bg-white rounded-lg m-3 mb-0"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
+      <img
+        src={encodeURI(currentImage)}
+        alt={`${project.title} screenshot ${activeIndex + 1}`}
+        className={
+          project.imageFit === "contain"
+            ? "w-full h-full object-contain object-center p-3 sm:p-4"
+            : "w-full h-full object-cover"
+        }
+      />
+
+      {imageList.length > 1 ? (
+        <>
+          <button
+            type="button"
+            aria-label="Previous image"
+            onClick={showPrev}
+            className="absolute left-2 top-1/2 -translate-y-1/2 inline-flex items-center justify-center h-8 w-8 rounded-full bg-black/50 text-white hover:bg-black/65 transition-colors"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </button>
+          <button
+            type="button"
+            aria-label="Next image"
+            onClick={showNext}
+            className="absolute right-2 top-1/2 -translate-y-1/2 inline-flex items-center justify-center h-8 w-8 rounded-full bg-black/50 text-white hover:bg-black/65 transition-colors"
+          >
+            <ChevronRight className="h-4 w-4" />
+          </button>
+        </>
+      ) : null}
+    </div>
+  );
 };
 
 const ProjectsSection = () => {
@@ -24,6 +104,14 @@ const ProjectsSection = () => {
       ],
       stack: ["JavaScript" ,"React", "Node.js","Groq", "JWT", "PDF", "Vercel", "Render"],
       image: "/ai-interview-prep-login.png",
+      imageFit: "contain",
+      images: [
+        "/Projects-images/Screenshot 2026-04-20 093934.png",
+        "/Projects-images/Screenshot 2026-04-20 093956.png",
+        "/Projects-images/Screenshot 2026-04-20 094043.png",
+        "/Projects-images/WhatsApp Image 2026-04-22 at 10.51.42.jpeg",
+        "/Projects-images/WhatsApp Image 2026-04-22 at 10.51.43.jpeg",
+      ],
       links: [
         { label: "Live app", href: "https://ai-interview-frontend-puce.vercel.app" },
         { label: "GitHub", href: "https://github.com/krishnegowdachandini-tech/interview-ai-yt" },
@@ -103,17 +191,7 @@ const ProjectsSection = () => {
                 key={project.title}
                 className="rounded-lg border border-border/70 bg-card shadow-sm overflow-hidden flex flex-col hover:shadow-lg hover:-translate-y-1 transition-all duration-200"
               >
-                <div className="aspect-video overflow-hidden border-b border-border/50 bg-white">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className={
-                      project.imageFit === "contain"
-                        ? "w-full h-full object-contain object-center p-3 sm:p-4"
-                        : "w-full h-full object-cover"
-                    }
-                  />
-                </div>
+                <ProjectImageCarousel project={project} />
                 <CardHeader className="pb-2">
                   <CardTitle className="text-lg font-semibold text-foreground leading-snug">
                     {project.title}
