@@ -96,6 +96,22 @@ const ProjectImageCarousel = ({ project }: { project: Project }) => {
 const ProjectsSection = () => {
   const projects: Project[] = [
     {
+      title: "Fashion World — E-Commerce Platform",
+      highlights: [
+        "Built a full-stack e-commerce app for eyewear, fashion bags, and luxury cosmetics with browse/filter, product detail pages, and inline admin edit/delete.",
+        "Implemented a persistent cart with quantity management (React Context + localStorage) and a 3-step checkout wizard (Shipping → Payment → Order Review) with user auth.",
+        "Created Priya Bot — a conversational AI shopping assistant with questionnaire-driven recommendations, live API product fetching, photo upload for face shape analysis, and natural language input.",
+        "Deployed on Oracle Cloud (Ubuntu) with Nginx as reverse proxy and PM2 for process management; backend serves product images via Express static middleware.",
+      ],
+      stack: ["React 19", "Vite", "Tailwind CSS", "Node.js", "Express.js", "Axios", "PM2", "Nginx", "Oracle Cloud"],
+      image: "/Projects-images/fashion-ecommerce.jpg",
+      imageFit: "cover",
+      links: [
+        { label: "Live app", href: "http://143.47.239.252" },
+        { label: "GitHub", href: "https://github.com/krishnegowdachandini-tech/Fashion-app" },
+      ],
+    },
+    {
       title: "AI Interview Prep & Resume Analyzer",
       highlights: [
         "Built a full-stack app with React and Node.js: JWT auth, PDF resume upload and parsing, and Groq LLaMA–powered analysis.",
