@@ -55,7 +55,7 @@ const HeroSection = () => {
         </h1>
 
         <p className="text-lg md:text-xl text-white/95 mb-6 max-w-2xl mx-auto font-medium animate-slide-up">
-          Software Engineer | React | TypeScript | Frontend Specialist
+          Software Engineer | React | JavaScript | TypeScript | Frontend Specialist
         </p>
 
         <p className="text-base md:text-lg text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed animate-slide-up px-2">
