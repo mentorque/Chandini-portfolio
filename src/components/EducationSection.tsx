@@ -14,6 +14,8 @@ import cert1 from "@/assets/cert1-python-full-stack.png";
 import cert2 from "@/assets/cert2-public-speaking.png";
 import cert3 from "@/assets/cert3-internship.png";
 import cert4 from "@/assets/cert4-training.png";
+import certIntroAgentSkills from "@/assets/certificate-etarrh6hcdxw-1779379278.pdf";
+import certClaudeApi from "@/assets/certificate-xj2z3dwr9anr-1779384851.pdf";
 
 const EducationSection = () => {
   const [certDialogOpen, setCertDialogOpen] = useState(false);
@@ -55,7 +57,8 @@ const EducationSection = () => {
     issuer: string;
     date: string;
     description?: string;
-    image: string;
+    image?: string;
+    pdf?: string;
   }> = [
     {
       title: "Python Full Stack Course (Certificate of Completion)",
@@ -88,6 +91,22 @@ const EducationSection = () => {
       description:
         "Successfully completed six weeks online training on Machine Learning (from 18th June, 2020 to 30th July, 2020).",
       image: cert4,
+    },
+    {
+      title: "Introduction to agent skills (Certificate of Completion)",
+      issuer: "Anthropic Education",
+      date: "May 21, 2026",
+      description:
+        "Completed Introduction to agent skills course on Anthropic's learning platform.",
+      pdf: certIntroAgentSkills,
+    },
+    {
+      title: "Building with the Claude API (Certificate of Completion)",
+      issuer: "Anthropic Education",
+      date: "May 21, 2026",
+      description:
+        "Completed Building with the Claude API course on Anthropic's learning platform.",
+      pdf: certClaudeApi,
     },
   ];
 
@@ -223,11 +242,19 @@ const EducationSection = () => {
                       </DialogDescription>
                     </DialogHeader>
                     <div className="rounded-md border bg-muted/30 p-2">
-                      <img
-                        src={activeCert.image}
-                        alt={activeCert.title}
-                        className="w-full max-h-[min(70vh,560px)] object-contain mx-auto"
-                      />
+                      {activeCert.pdf ? (
+                        <iframe
+                          src={activeCert.pdf}
+                          title={activeCert.title}
+                          className="w-full h-[min(70vh,560px)] rounded-sm"
+                        />
+                      ) : activeCert.image ? (
+                        <img
+                          src={activeCert.image}
+                          alt={activeCert.title}
+                          className="w-full max-h-[min(70vh,560px)] object-contain mx-auto"
+                        />
+                      ) : null}
                     </div>
                   </>
                 ) : null}
